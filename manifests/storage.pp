@@ -41,7 +41,9 @@ class graphite::storage (
   $manhole_port               = $graphite::storage::params::manhole_port,
   $manhole_user               = $graphite::storage::params::manhole_user,
   $manhole_public_key         = $graphite::storage::params::manhole_public_key,
-  $bind_patterns              = $graphite::storage::params::bind_patterns
+  $bind_patterns              = $graphite::storage::params::bind_patterns,
+  $storage_schema_pattern     = $graphite::storage::params::storage_schema_pattern,
+  $storage_schema_retentions  = $graphite::storage::params::storage_schema_retentions
   ) inherits graphite::storage::params {
   anchor { "graphite::storage::start":
   } ->

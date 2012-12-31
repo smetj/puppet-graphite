@@ -1,19 +1,16 @@
 class graphite::storage::packages(){
-  $packages = [ "python-carbon","python-whisper" ]
-  package { "python-carbon":
-      ensure => "installed",
-      provider => "yum"
-  } ~>
   file { "/etc/init.d/carbon-cache":
     mode => 540,
     owner => root,
     group => root,
-    source => "puppet:///modules/graphite/carbon-cache.init"
+    source => "puppet:///modules/graphite/carbon-cache.init",
+    require => Class [ "graphite::packages" ]
   } ~>
   file { "/etc/sysconfig/carbon-cache":
     mode => 540,
     owner => root,
     group => root,
-    source => "puppet:///modules/graphite/carbon-cache.sysconfig"
+    source => "puppet:///modules/graphite/carbon-cache.sysconfig",
+    require => Class [ "graphite::packages" ]
   }
 }

@@ -41,5 +41,7 @@ class graphite::storage::params {
   $manhole_port               = "7222"
   $manhole_user               = "admin"
   $manhole_public_key         = "ssh-rsa AAAAB3NzaC1yc2EAAAABiwAaAIEAoxN0sv/e4eZCPpi3N3KYvyzRaBaMeS2RsOQ/cDuKv11dlNzVeiyc3RFmCv5Rjwn/lQ79y0zyHxw67qLyhQ/kDzINc4cY41ivuQXm2tPmgvexdrBv5nsfEpjs3gLZfJnyvlcVyWK/lId8WUvEWSWHTzsbtmXAF2raJMdgLTbQ8wE="
-  $bind_patterns              = "#  
+  $bind_patterns              = "#"
+  $storage_schema_pattern     = ".*"
+  $storage_schema_retentions  = [ "60s:1d" ]
 }
