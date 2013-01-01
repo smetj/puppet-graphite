@@ -13,4 +13,8 @@ class graphite::storage::config{
     mode    => 644,
     content => template("${module_name}/etc/carbon/storage-schemas.conf.erb"),
   }
+  file { "carbon.conf":
+    path    => "/etc/carbon/carbon.conf",
+    ensure  => "absent"    
+  }
 }

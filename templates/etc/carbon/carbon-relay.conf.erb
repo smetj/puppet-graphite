@@ -1,0 +1,55 @@
+[relay]
+LINE_RECEIVER_INTERFACE = <%= @line_receiver_interface %>
+LINE_RECEIVER_PORT = <%= @line_receiver_port %>
+PICKLE_RECEIVER_INTERFACE = <%= @pickle_receiver_interface %>
+PICKLE_RECEIVER_PORT = <%= @pickle_receiver_port %>
+
+# To use consistent hashing instead of the user defined relay-rules.conf,
+# change this to:
+# RELAY_METHOD = consistent-hashing
+RELAY_METHOD = <%= @relay_method %>
+
+# If you use consistent-hashing you may want to add redundancy
+# of your data by replicating every datapoint to more than
+# one machine.
+REPLICATION_FACTOR = <%= @replication_factor %>
+
+# This is a list of carbon daemons we will send any relayed or
+# generated metrics to. The default provided would send to a single
+# carbon-cache instance on the default port. However if you
+# use multiple carbon-cache instances then it would look like this:
+#
+# DESTINATIONS = 127.0.0.1:2004:a, 127.0.0.1:2104:b
+#
+# The general form is IP:PORT:INSTANCE where the :INSTANCE part is
+# optional and refers to the "None" instance if omitted.
+#
+# Note that if the destinations are all carbon-caches then this should
+# exactly match the webapp's CARBONLINK_HOSTS setting in terms of
+# instances listed (order matters!).
+#
+# If using RELAY_METHOD = rules, all destinations used in relay-rules.conf
+# must be defined in this list
+DESTINATIONS = <%= @destinations %>
+
+# This defines the maximum "message size" between carbon daemons.
+# You shouldn't need to tune this unless you really know what you're doing.
+MAX_DATAPOINTS_PER_MESSAGE = <%= @max_datapoints_per_message %>
+MAX_QUEUE_SIZE = <%= @max_queue_size %>
+
+# Set this to False to drop datapoints when any send queue (sending datapoints
+# to a downstream carbon daemon) hits MAX_QUEUE_SIZE. If this is True (the
+# default) then sockets over which metrics are received will temporarily stop accepting
+# data until the send queues fall below 80% MAX_QUEUE_SIZE.
+USE_FLOW_CONTROL = <%= @use_flow_control %>
+
+# Set this to True to enable whitelisting and blacklisting of metrics in
+# CONF_DIR/whitelist and CONF_DIR/blacklist. If the whitelist is missing or
+# empty, all metrics will pass through
+USE_WHITELIST = <%= @use_whitelist %>
+
+# By default, carbon itself will log statistics (such as a count,
+# metricsReceived) with the top level prefix of 'carbon' at an interval of 60
+# seconds. Set CARBON_METRIC_INTERVAL to 0 to disable instrumentation
+CARBON_METRIC_PREFIX = <%= @carbon_metric_prefix %>
+CARBON_METRIC_INTERVAL = <%= @carbon_metric_interval %>

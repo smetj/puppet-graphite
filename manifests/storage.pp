@@ -1,5 +1,5 @@
 class graphite::storage (
-  $storage_dir                = $graphite::storage::params::storagedir,
+  $storage_dir                = $graphite::storage::params::storage_dir,
   $local_data_dir             = $graphite::storage::params::local_data_dir,
   $whitelists_dir             = $graphite::storage::params::whitelists_dir,
   $conf_dir                   = $graphite::storage::params::conf_dir,
