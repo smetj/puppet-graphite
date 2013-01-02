@@ -1,6 +1,6 @@
 class graphite::storage::packages(){
   file { "/etc/init.d/carbon-cache":
-    mode => 664,
+    mode => 755,
     owner => root,
     group => root,
     source => "puppet:///modules/graphite/carbon-cache.init",
