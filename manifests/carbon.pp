@@ -45,14 +45,10 @@ class graphite::storage (
   $storage_schema_pattern     = $graphite::storage::params::storage_schema_pattern,
   $storage_schema_retentions  = $graphite::storage::params::storage_schema_retentions
   ) inherits graphite::storage::params {
-  anchor { "graphite::storage::start":
-  } ->
   class { "graphite::storage::packages":
   } ~>
   class { "graphite::storage::config":
   } ~>
   class { "graphite::storage::service":
-  } ~>
-  anchor { "graphite::storage::end":
-  }  
+  }
 }

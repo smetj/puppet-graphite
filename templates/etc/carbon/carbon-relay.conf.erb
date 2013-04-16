@@ -30,7 +30,7 @@ REPLICATION_FACTOR = <%= @replication_factor %>
 #
 # If using RELAY_METHOD = rules, all destinations used in relay-rules.conf
 # must be defined in this list
-DESTINATIONS = <%= @destinations %>
+DESTINATIONS = <%= destinations.flatten.join(',') %>
 
 # This defines the maximum "message size" between carbon daemons.
 # You shouldn't need to tune this unless you really know what you're doing.

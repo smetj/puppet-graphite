@@ -13,14 +13,10 @@ class graphite::relay (
   $carbon_metric_prefix       = $graphite::relay::params::carbon_metric_prefix,
   $carbon_metric_interval     = $graphite::relay::params::carbon_metric_interval
   ) inherits graphite::relay::params {
-  anchor { "graphite::relay::start":
-  } ->
   class { "graphite::relay::packages":
   } ~>
   class { "graphite::relay::config":
   } ~>
   class { "graphite::relay::service":
-  } ~>
-  anchor { "graphite::relay::end":
-  }   
+  }
 }
