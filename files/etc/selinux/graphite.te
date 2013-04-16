@@ -1,0 +1,21 @@
+
+module graphite 1.0;
+
+require {
+	type httpd_t;
+	type default_t;
+	type fonts_cache_t;
+	type var_lib_t;
+	type port_t;
+	class tcp_socket { name_connect };
+	class file { create read write open getattr };
+	class dir { setattr getattr open write read add_name };
+}
+
+#============= httpd_t ==============
+allow httpd_t default_t:file { create read write getattr open };
+allow httpd_t default_t:dir { add_name read write};
+allow httpd_t fonts_cache_t:dir { setattr getattr open read };
+allow httpd_t var_lib_t:file write;
+allow httpd_t port_t:tcp_socket name_connect;
+

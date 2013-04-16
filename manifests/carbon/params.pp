@@ -1,7 +1,7 @@
 class graphite::carbon::params {
-  $storage_dir                = "/var/lib/carbon/"
-  $local_data_dir             = "/var/lib/carbon/whisper/"
-  $whitelists_dir             = "/var/lib/carbon/lists/"
+  $storage_dir                = "/data/carbon"
+  $local_data_dir             = "/data/carbon/whisper"
+  $whitelists_dir             = "/data/carbon/lists/"
   $conf_dir                   = "/etc/carbon/"
   $log_dir                    = "/var/log/carbon/"
   $pid_dir                    = "/var/run"
